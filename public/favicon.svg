@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="pinnacleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f8b8d"/>
+      <stop offset="100%" stop-color="#085a5b"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="url(#pinnacleGrad)"/>
+  <path d="M22 16h13c7.18 0 13 4.477 13 10s-5.82 10-13 10h-6v12h-7V16zm7 14h6c3.866 0 7-1.79 7-4s-3.134-4-7-4h-6v8z" fill="#ffffff"/>
+</svg>
+
