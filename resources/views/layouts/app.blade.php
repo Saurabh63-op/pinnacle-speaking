@@ -197,6 +197,14 @@
   </a>
 
   <script src="{{ asset('js/reveal.js') }}"></script>
+  <script>
+    // Secret shortcut for Admin: Press Ctrl + Shift + A (or Alt + A) anywhere on the site
+    document.addEventListener('keydown', function (e) {
+      if ((e.ctrlKey && e.shiftKey && (e.key === 'A' || e.key === 'a')) || (e.altKey && (e.key === 'A' || e.key === 'a'))) {
+        window.location.href = "{{ route('admin.login') }}";
+      }
+    });
+  </script>
   @yield('scripts')
 </body>
 
