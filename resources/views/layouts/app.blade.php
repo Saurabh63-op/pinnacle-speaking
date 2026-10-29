@@ -154,6 +154,28 @@
 
 <body class="flex min-h-screen flex-col bg-white">
 
+  @auth
+    @if(auth()->user()->is_admin)
+      <!-- Admin Quick Bar (visible only when logged in as admin) -->
+      <div class="sticky top-0 z-[60] bg-slate-900 border-b border-slate-800 text-slate-200 text-xs px-5 py-2 flex items-center justify-between shadow-md">
+        <div class="flex items-center gap-2">
+          <span class="size-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span class="font-medium text-slate-300">Admin Mode Active ({{ auth()->user()->name }})</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <a href="{{ route('admin.dashboard') }}" class="font-bold text-emerald-400 hover:text-emerald-300 transition-colors flex items-center gap-1.5">
+            <span>⚡ Open Admin Dashboard &rarr;</span>
+          </a>
+          <span class="text-slate-700">|</span>
+          <form method="POST" action="{{ route('admin.logout') }}" class="inline">
+            @csrf
+            <button type="submit" class="text-slate-400 hover:text-red-400 transition-colors font-medium">Log out</button>
+          </form>
+        </div>
+      </div>
+    @endif
+  @endauth
+
   @include('partials.header')
 
   <main class="flex-1">

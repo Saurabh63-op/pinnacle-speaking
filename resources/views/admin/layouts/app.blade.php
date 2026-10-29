@@ -87,13 +87,13 @@
             <span class="text-[10px] font-bold uppercase tracking-wider text-slate-500">Quick Links</span>
           </div>
 
-          <a href="{{ route('home') }}" target="_blank"
+          <a href="{{ route('home') }}"
              class="flex items-center justify-between px-3.5 py-2 rounded-xl text-slate-400 hover:text-emerald-300 hover:bg-slate-800 transition-colors">
             <div class="flex items-center gap-3 text-xs">
               <span class="text-base">🌐</span>
               <span>Visit Live Website</span>
             </div>
-            <svg class="size-3.5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            <svg class="size-3.5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
           </a>
         </nav>
       </div>

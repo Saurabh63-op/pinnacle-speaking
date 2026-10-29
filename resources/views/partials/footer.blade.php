@@ -48,8 +48,22 @@
   </div>
 
   <div class="border-t border-white/10">
-    <p class="mx-auto max-w-6xl px-5 py-6 text-center text-xs text-white/60">
-      &copy; {{ date('Y') }} Pinnacle Speaking. All rights reserved.
-    </p>
+    <div class="mx-auto flex max-w-6xl flex-col sm:flex-row items-center justify-between px-5 py-6 text-xs text-white/60 gap-3">
+      <p>&copy; {{ date('Y') }} Pinnacle Speaking. All rights reserved.</p>
+      <div>
+        @auth
+          @if(auth()->user()->is_admin)
+            <a href="{{ route('admin.dashboard') }}" class="inline-flex items-center gap-1.5 font-bold text-emerald-400 hover:text-emerald-300 transition-colors">
+              <span class="size-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span>⚡ Admin Dashboard</span>
+            </a>
+          @endif
+        @else
+          <a href="{{ route('admin.login') }}" class="text-white/40 hover:text-white/80 transition-colors inline-flex items-center gap-1">
+            <span>🔒 Staff / Admin Login</span>
+          </a>
+        @endauth
+      </div>
+    </div>
   </div>
 </footer>
