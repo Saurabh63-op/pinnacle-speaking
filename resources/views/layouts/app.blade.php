@@ -7,8 +7,8 @@
 
   {{-- Primary SEO --}}
   <title>@yield('title', 'Best English Speaking Classes in Virar | Pinnacle Speaking')</title>
-  <meta name="description" content="@yield('description', 'Pinnacle Speaking — the best English speaking classes in Virar. Join our expert-led courses in public speaking, communication & personality development at Global City, Virar (West).')">
-  <meta name="keywords" content="@yield('keywords', 'best english speaking classes virar, english speaking course virar west, public speaking institute virar, communication classes palghar, personality development virar, spoken english virar, pinnacle speaking, english classes near me virar')">
+  <meta name="description" content="@yield('description', 'Pinnacle Speaking — the best English speaking classes in Virar. Join our expert-led courses in public speaking, communication & personal growth.')">
+  <meta name="keywords" content="@yield('keywords', 'best english speaking classes virar, english speaking course virar west, public speaking institute virar, communication classes palghar, personality development classes virar')">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Pinnacle Speaking">
   <link rel="canonical" href="{{ url()->current() }}">
@@ -154,28 +154,6 @@
 
 <body class="flex min-h-screen flex-col bg-white">
 
-  @auth
-    @if(auth()->user()->is_admin)
-      <!-- Admin Quick Bar (visible only when logged in as admin) -->
-      <div class="sticky top-0 z-[60] bg-slate-900 border-b border-slate-800 text-slate-200 text-xs px-5 py-2 flex items-center justify-between shadow-md">
-        <div class="flex items-center gap-2">
-          <span class="size-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span class="font-medium text-slate-300">Admin Mode Active ({{ auth()->user()->name }})</span>
-        </div>
-        <div class="flex items-center gap-4">
-          <a href="{{ route('admin.dashboard') }}" class="font-bold text-emerald-400 hover:text-emerald-300 transition-colors flex items-center gap-1.5">
-            <span>⚡ Open Admin Dashboard &rarr;</span>
-          </a>
-          <span class="text-slate-700">|</span>
-          <form method="POST" action="{{ route('admin.logout') }}" class="inline">
-            @csrf
-            <button type="submit" class="text-slate-400 hover:text-red-400 transition-colors font-medium">Log out</button>
-          </form>
-        </div>
-      </div>
-    @endif
-  @endauth
-
   @include('partials.header')
 
   <main class="flex-1">
@@ -189,20 +167,31 @@
      target="_blank"
      rel="noopener noreferrer"
      aria-label="Chat on WhatsApp"
-     class="fixed bottom-6 right-6 z-50 flex items-center gap-2 rounded-full bg-emerald-500 px-4 py-3 text-white shadow-xl transition-all duration-300 hover:scale-105 hover:bg-emerald-600 hover:shadow-2xl hover:shadow-emerald-500/40 group">
+     class="fixed bottom-6 right-6 z-50 flex items-center gap-2 rounded-full bg-emerald-500 px-4 py-3 text-white shadow-xl transition-all duration-300 hover:scale-105 hover:bg-emerald-600 hover:shadow-2xl">
     <svg class="size-6 fill-current" viewBox="0 0 24 24">
-      <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.697.072-2.146-.53-1.633-.679-2.69-2.339-2.772-2.451-.082-.112-.663-.884-.663-1.687 0-.802.418-1.196.567-1.36.149-.164.325-.205.433-.205.109 0 .217.001.312.006.101.005.237-.038.37.283.138.334.474 1.157.515 1.242.042.085.069.185.013.296-.056.111-.084.18-.168.278-.083.099-.175.221-.25.297-.083.084-.17.175-.073.342.097.166.432.714.928 1.154.638.567 1.176.743 1.343.827.166.083.264.07.363-.043.099-.113.424-.494.537-.663.113-.169.227-.141.381-.084.155.056.983.463 1.152.548.169.084.282.127.324.197.042.07.042.409-.102.814zM12 2C6.477 2 2 6.477 2 12c0 1.891.528 3.659 1.442 5.17L2 22l4.981-1.408A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
+      <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.765-5.771zm3.055 8.106c-.144.407-.833.771-1.166.818-.293.043-.661.051-.95-.021-.276-.069-.637-.134-.974-.567-.321-.412-.736-.921-.8-1.034-.065-.112-.013-.173.043-.242.096-.116.213-.291.319-.436.101-.136.133-.232.22-.387.09-.16.041-.299-.021-.415-.064-.116-.588-1.505-.801-2.057-.209-.54-.421-.469-.588-.477l-.501-.01c-.172 0-.452.067-.691.328-.239.261-.909.887-.909 2.158 0 1.266.936 2.502 1.067 2.672.13.17 1.84 2.876 4.551 3.991.635.277 1.13.443 1.518.568.643.204 1.227.175 1.688.106.514-.077 1.577-.644 1.798-1.268.221-.623.221-1.159.155-1.268-.066-.108-.24-.171-.5-.298z"/>
     </svg>
     <span class="hidden sm:inline font-semibold text-xs tracking-wide">WhatsApp</span>
   </a>
 
   <script src="{{ asset('js/reveal.js') }}"></script>
   <script>
-    // Secret shortcut for Admin: Press Ctrl + Shift + A (or Alt + A) anywhere on the site
     document.addEventListener('keydown', function (e) {
-      if ((e.ctrlKey && e.shiftKey && (e.key === 'A' || e.key === 'a')) || (e.altKey && (e.key === 'A' || e.key === 'a'))) {
-        window.location.href = "{{ route('admin.login') }}";
+      const isPrivateAdminShortcut = e.ctrlKey && e.altKey && e.shiftKey && (e.key === 'K' || e.key === 'k');
+
+      if (!isPrivateAdminShortcut) {
+        return;
       }
+
+      @auth
+        @if(auth()->user()?->is_admin)
+          window.location.href = "{{ route('admin.dashboard') }}";
+        @else
+          window.location.href = "{{ route('admin.login') }}";
+        @endif
+      @else
+        window.location.href = "{{ route('admin.login') }}";
+      @endauth
     });
   </script>
   @yield('scripts')
