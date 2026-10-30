@@ -25,10 +25,12 @@
         <!-- Large Left Image -->
         <div class="lg:col-span-7">
           <div class="overflow-hidden rounded-2xl shadow-md">
-            <img 
-              src="{{ asset('images/services-speaking-hall.jpg') }}" 
-              alt="Public Speaking Mastery Hall" 
+            <img
+              src="{{ asset('images/services-speaking-hall.jpg') }}"
+              alt="Public Speaking Mastery Hall"
               class="w-full h-[280px] sm:h-[360px] object-cover transition-transform duration-500 hover:scale-105"
+              loading="eager"
+              fetchpriority="high"
             >
           </div>
         </div>
@@ -88,17 +90,19 @@
         <div class="space-y-4">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div class="overflow-hidden rounded-2xl shadow-sm bg-gray-50 aspect-[4/3]">
-              <img 
-                src="{{ asset('images/services-workshop-1.jpg') }}" 
-                alt="Online Workshops Video Session" 
+              <img
+                src="{{ asset('images/services-workshop-1.jpg') }}"
+                alt="Online Workshops Video Session"
                 class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                loading="lazy"
               >
             </div>
             <div class="overflow-hidden rounded-2xl shadow-sm bg-gray-50 aspect-[4/3]">
-              <img 
-                src="{{ asset('images/services-workshop-2.jpg') }}" 
-                alt="Online Workshops Study Notes" 
+              <img
+                src="{{ asset('images/services-workshop-2.jpg') }}"
+                alt="Online Workshops Study Notes"
                 class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                loading="lazy"
               >
             </div>
           </div>
@@ -120,17 +124,19 @@
         <div class="space-y-4 pt-4">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div class="overflow-hidden rounded-2xl shadow-sm bg-gray-50 aspect-[4/3]">
-              <img 
-                src="{{ asset('images/services-coaching-1.jpg') }}" 
-                alt="Personal Coaching Trainer" 
+              <img
+                src="{{ asset('images/services-coaching-1.jpg') }}"
+                alt="Personal Coaching Trainer"
                 class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                loading="lazy"
               >
             </div>
             <div class="overflow-hidden rounded-2xl shadow-sm bg-gray-50 aspect-[4/3]">
-              <img 
-                src="{{ asset('images/services-coaching-2.jpg') }}" 
-                alt="Personal Coaching Auditorium Practice" 
+              <img
+                src="{{ asset('images/services-coaching-2.jpg') }}"
+                alt="Personal Coaching Auditorium Practice"
                 class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                loading="lazy"
               >
             </div>
           </div>
@@ -171,10 +177,11 @@
       <!-- Author -->
       <div class="mt-8 flex flex-col items-center">
         <div class="size-12 rounded-full overflow-hidden border-2 border-white/60 mb-2 shadow-sm bg-white/20">
-          <img 
-            src="{{ asset('images/founder.jpg') }}" 
-            alt="Lakshita, Student" 
+          <img
+            src="{{ asset('images/founder.jpg') }}"
+            alt="Lakshita, Student"
             class="w-full h-full object-cover"
+            loading="lazy"
           >
         </div>
         <p class="text-xs sm:text-sm font-semibold text-white">

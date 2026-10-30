@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --radius: 0.75rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.19 0.062 275);
+  --card: oklch(1 0 0);
+
+  --primary: oklch(0.596 0.126 163.2);
+  --primary-foreground: oklch(0.995 0.01 166);
+  --primary-soft: oklch(0.696 0.149 162.5);
+
+  --secondary: oklch(0.979 0.021 166);
+  --muted-foreground: oklch(0.554 0.041 257);
+  --border: oklch(0.925 0.012 255);
+
+  --navy: oklch(0.19 0.062 275);
+  --navy-foreground: oklch(0.97 0.008 255);
+  --mint: oklch(0.979 0.021 166);
+
+  --shadow-card: 0 1px 2px oklch(0.19 0.062 275 / 0.04), 0 8px 24px oklch(0.19 0.062 275 / 0.06);
+  --shadow-lift: 0 8px 20px oklch(0.19 0.062 275 / 0.08), 0 24px 48px oklch(0.19 0.062 275 / 0.1);
+}
+
+* { border-color: var(--border); box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--muted-foreground);
+  font-family: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+h1, h2, h3, h4 {
+  color: var(--navy);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* ---------- Color utility classes (used with Tailwind layout utilities) ---------- */
+.bg-mint { background-color: var(--mint); }
+.bg-navy { background-color: var(--navy); }
+.text-navy { color: var(--navy); }
+.text-navy-foreground { color: var(--navy-foreground); }
+.text-primary { color: var(--primary); }
+.bg-primary { background-color: var(--primary); }
+.text-primary-foreground { color: var(--primary-foreground); }
+.border-primary { border-color: var(--primary); }
+.shadow-card { box-shadow: var(--shadow-card); }
+.shadow-lift { box-shadow: var(--shadow-lift); }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  padding: 0.75rem 1.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all 300ms ease;
+  white-space: nowrap;
+}
+.btn:hover { transform: scale(1.03); }
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  box-shadow: var(--shadow-card);
+}
+.btn-primary:hover { background-color: var(--primary-soft); box-shadow: var(--shadow-lift); }
+.btn-outline {
+  border: 1px solid color-mix(in oklab, var(--primary) 40%, transparent);
+  color: var(--primary);
+  background: transparent;
+}
+.btn-outline:hover { border-color: var(--primary); background-color: var(--mint); }
+.btn-light {
+  background-color: var(--background);
+  color: var(--navy);
+  box-shadow: var(--shadow-card);
+}
+.btn-light:hover { box-shadow: var(--shadow-lift); }
+
+/* ---------- Card ---------- */
+.ui-card {
+  border-radius: 1rem;
+  border: 1px solid color-mix(in oklab, var(--border) 70%, transparent);
+  background-color: var(--card);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-card);
+  transition: all 300ms ease;
+}
+.ui-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lift); }
+
+/* ---------- Section tones ---------- */
+.section { padding: 4rem 1.25rem; scroll-margin-top: 5rem; }
+@media (min-width: 640px) { .section { padding: 5rem 1.25rem; } }
+.section-mint { background-color: var(--mint); }
+.section-navy { background-color: var(--navy); }
+.section-inner { max-width: 72rem; margin: 0 auto; }
+
+/* ---------- Organic blob-shaped image containers ---------- */
+.blob-a { border-radius: 62% 38% 46% 54% / 54% 44% 56% 46%; overflow: hidden; }
+.blob-b { border-radius: 42% 58% 63% 37% / 46% 62% 38% 54%; overflow: hidden; }
+.blob-c { border-radius: 56% 44% 38% 62% / 40% 56% 44% 60%; overflow: hidden; }
+
+/* ---------- Small dotted-pattern decoration ---------- */
+.dot-grid {
+  background-image: radial-gradient(var(--primary-soft) 1.6px, transparent 1.6px);
+  background-size: 16px 16px;
+  opacity: 0.35;
+}
+
+/* ---------- Gentle fade-up reveal, optimized for fast response ---------- */
+.reveal {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+}

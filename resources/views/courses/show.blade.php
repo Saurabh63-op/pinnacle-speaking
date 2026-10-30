@@ -245,10 +245,11 @@
 
           <!-- Right Image -->
           <div class="overflow-hidden rounded-2xl shadow-sm aspect-[4/3] bg-gray-50">
-            <img 
-              src="{{ asset('images/' . $current['who_image']) }}" 
-              alt="{{ $course->title }}" 
+            <img
+              src="{{ asset('images/' . $current['who_image']) }}"
+              alt="{{ $course->title }}"
               class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+              loading="lazy"
             >
           </div>
 
@@ -277,10 +278,11 @@
               </ul>
             </div>
             <div class="mt-6 overflow-hidden rounded-xl aspect-[16/10] bg-gray-50">
-              <img 
-                src="{{ asset('images/' . $current['how_image']) }}" 
-                alt="How the Program Works" 
+              <img
+                src="{{ asset('images/' . $current['how_image']) }}"
+                alt="How the Program Works"
                 class="w-full h-full object-cover"
+                loading="lazy"
               >
             </div>
           </div>
@@ -301,10 +303,11 @@
               </ul>
             </div>
             <div class="mt-6 overflow-hidden rounded-xl aspect-[16/10] bg-gray-50">
-              <img 
-                src="{{ asset('images/' . $current['work_image']) }}" 
-                alt="What You Will Work On" 
+              <img
+                src="{{ asset('images/' . $current['work_image']) }}"
+                alt="What You Will Work On"
                 class="w-full h-full object-cover"
+                loading="lazy"
               >
             </div>
           </div>

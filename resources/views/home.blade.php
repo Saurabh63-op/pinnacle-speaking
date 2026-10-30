@@ -31,7 +31,7 @@
       <div class="reveal relative">
         <div class="dot-grid absolute -top-5 -left-5 hidden size-24 rounded-xl sm:block"></div>
         <div class="dot-grid absolute -right-5 -bottom-5 hidden size-24 rounded-xl sm:block"></div>
-        <img src="{{ asset('images/hero-speaker.jpg') }}" alt="Coach delivering a public speaking session" class="blob-a relative w-full object-cover shadow-lift">
+        <img src="{{ asset('images/hero-speaker.jpg') }}" alt="Coach delivering a public speaking session" class="blob-a relative w-full object-cover shadow-lift" loading="eager" fetchpriority="high">
       </div>
     </div>
   </section>
@@ -41,7 +41,7 @@
     <div class="section-inner grid items-center gap-12 lg:grid-cols-2">
       <div class="reveal relative">
         <div class="dot-grid absolute -top-5 -left-5 hidden size-24 rounded-xl sm:block"></div>
-        <img src="{{ asset('images/group-workshop.jpg') }}" alt="Group communication workshop" class="blob-b relative w-full object-cover shadow-lift">
+        <img src="{{ asset('images/group-workshop.jpg') }}" alt="Group communication workshop" class="blob-b relative w-full object-cover shadow-lift" loading="lazy">
       </div>
       <div class="reveal">
         <p class="text-xs font-semibold uppercase tracking-[0.18em] text-primary">About Pinnacle Speaking</p>

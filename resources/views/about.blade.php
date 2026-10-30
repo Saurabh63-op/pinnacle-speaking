@@ -15,7 +15,7 @@
   <section class="section section-mint !pt-0 sm:!pt-0">
     <div class="section-inner grid items-center gap-12 lg:grid-cols-2">
       <div class="reveal">
-        <img src="{{ asset('images/founder.jpg') }}" alt="Portrait of the founding coach" class="blob-c mx-auto max-w-sm w-full object-cover shadow-lift">
+        <img src="{{ asset('images/founder.jpg') }}" alt="Portrait of the founding coach" class="blob-c mx-auto max-w-sm w-full object-cover shadow-lift" loading="lazy">
       </div>
       <div class="reveal">
         <p class="text-xs font-semibold uppercase tracking-[0.18em] text-primary">The founder</p>

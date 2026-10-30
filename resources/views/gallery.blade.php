@@ -15,7 +15,7 @@
       <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         @foreach (['gallery-1.jpg', 'gallery-2.jpg', 'gallery-3.jpg', 'group-workshop.jpg', 'personal-coaching.jpg', 'hero-speaker.jpg'] as $i => $img)
           <div class="reveal overflow-hidden rounded-2xl shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-lift" style="transition-delay: {{ $i * 60 }}ms">
-            <img src="{{ asset('images/' . $img) }}" alt="Coaching session photo" class="h-64 w-full object-cover transition-transform duration-500 hover:scale-105">
+            <img src="{{ asset('images/' . $img) }}" alt="Coaching session photo" class="h-64 w-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy">
           </div>
         @endforeach
       </div>
