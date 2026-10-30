@@ -2,10 +2,10 @@ services:
   # Web Service
   - type: web
     name: pinnacle-speaking
-    env: php
+    env: docker
     plan: free
-    buildCommand: composer install --no-dev --optimize-autoloader && php artisan key:generate && php artisan route:cache && php artisan config:cache && php artisan view:cache && touch database/database.sqlite && php artisan migrate --force
-    startCommand: php artisan serve --host=0.0.0.0 --port=$PORT
+    dockerContext: .
+    dockerfilePath: Dockerfile
     healthCheckPath: /
     envVars:
       - key: APP_ENV
