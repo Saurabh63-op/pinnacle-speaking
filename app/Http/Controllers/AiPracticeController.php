@@ -30,7 +30,7 @@ A student wants to practice speaking. Here are their details:
 - Topic: "{$topic}"
 - Level: {$levelLabel}
 
-Please generate a structured, friendly, and motivating response in the following format (use these exact headings):
+Please generate a structured, friendly, and motivating response in the following format (use these EXACT headings):
 
 ## 🎯 Speaking Tips
 Give 4 specific, actionable speaking tips tailored to this topic and level. Each tip should be 1-2 sentences.
@@ -47,14 +47,21 @@ Give 2 different strong opening sentences the student can use to start their spe
 ## ⭐ Confidence Booster
 One short motivational message (1-2 sentences) to encourage the student.
 
-Keep the language simple, warm, and encouraging. Avoid jargon. Format clearly with bullet points where appropriate.
+IMPORTANT:
+- Keep the language simple, warm, and encouraging
+- Avoid jargon and complex words
+- Format clearly with bullet points where appropriate
+- Make tips practical and immediately usable
+- Adapt content to the student's level ({$levelLabel})
 PROMPT;
 
         $apiKey = config('services.gemini.api_key');
 
+        \Log::info('Gemini API call', ['key_prefix' => substr((string) $apiKey, 0, 8), 'topic' => $topic]);
+
         try {
             $response = Http::timeout(30)->post(
-                "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={$apiKey}",
+                "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent?key={$apiKey}",
                 [
                     'contents' => [
                         [
@@ -64,11 +71,13 @@ PROMPT;
                         ]
                     ],
                     'generationConfig' => [
-                        'temperature'     => 0.8,
-                        'maxOutputTokens' => 1024,
+                        'temperature' => 0.7,
+                        'maxOutputTokens' => 2048,
                     ],
                 ]
             );
+
+            \Log::info('Gemini API response', ['status' => $response->status(), 'body' => substr($response->body(), 0, 500)]);
 
             if ($response->successful()) {
                 $data = $response->json();
@@ -81,14 +90,15 @@ PROMPT;
 
             return response()->json([
                 'success' => false,
-                'error'   => 'AI se response nahi mila. Please try again.',
+                'error' => 'AI se response nahi mila. Status: ' . $response->status() . ' — ' . substr($response->body(), 0, 200),
             ], 500);
 
         } catch (\Exception $e) {
             return response()->json([
                 'success' => false,
-                'error'   => 'Connection error. Please check your internet and try again.',
+                'error' => 'Connection error. Please check your internet and try again.',
             ], 500);
         }
     }
 }
+
