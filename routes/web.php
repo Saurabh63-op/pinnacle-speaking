@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AiPracticeController;
 use App\Http\Controllers\Admin\AuthController as AdminAuthController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\LeadController as AdminLeadController;
@@ -30,6 +31,9 @@ Route::get('/contact', [ContactController::class, 'show'])->name('contact');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
 Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
+
+Route::get('/ai-practice', [AiPracticeController::class, 'show'])->name('ai.practice');
+Route::post('/ai-practice/generate', [AiPracticeController::class, 'generate'])->name('ai.practice.generate');
 
 /*
 |--------------------------------------------------------------------------
